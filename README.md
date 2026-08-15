@@ -3,5 +3,10 @@ trying to build a trading suggestion project using indicators and support resist
 done: 1)extraction of candle data. 
       2)coded atr. 
       3)coded sma. 
-in progress: 1)support resistance level. 
-             2)basic buy/sell suggester. 
+      4)ema
+      5)rsi
+      6)support/resistance
+in progress: 
+final chart_analysis regression score
+fundamental_analysis score
+sentimental_analysis score
