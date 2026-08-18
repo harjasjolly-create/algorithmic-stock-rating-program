@@ -50,23 +50,24 @@ graph TD
 1. **Technical Classifier (Chart Analyzer)**
 A Machine Learning model optimized to predict short-term momentum.
 Feature Engineering: Computes Relative Strength Index (RSI), Simple/Exponential Moving Averages (SMA/EMA), and utilizes Average True Range (ATR) to define structural support and resistance bounds.
-Heuristic Scoring: Raw indicators are mapped to discrete tensors [−1,0,1].
-ML Probability Mapping: A Logistic Regression model dynamically weights the discrete scores to output a continuous Chart Buy Probability bounded between 0 and 100.
+Heuristic Scoring: Raw indicators are mapped to discrete tensors $[−1,0,1]$.
+ML Probability Mapping: A Logistic Regression model dynamically weights the discrete scores to output a continuous $Chart Buy Probability$ bounded between 0 and 100.
 2. **Fundamental Valuation Matrix**
 An automated extraction mechanism that evaluates underlying corporate health against historically backtested baseline thresholds.
 Metrics Extracted: Trailing Price-to-Earnings (P/E), PEG Ratio, Return on Equity (ROE), and Debt-to-Equity (D/E).
-Scoring Logic: Ratios are scored into [−1,0,1] arrays and averaged to create a composite fundamental baseline.
+Scoring Logic: Ratios are scored into $[−1,0,1]$ arrays and averaged to create a composite fundamental baseline.
 3. **NLP Market Sentiment Pipeline**
 Real-time financial news headlines are scraped using BeautifulSoup and processed via a VADER NLP lexicon. The algorithm extracts semantic polarity (positive, negative, neutral) to generate a raw score representing short-term institutional sentiment.
 
 # ---
 
 # 🧮 Signal Normalization & Mathematical Synthesis
-The core engineering challenge of this pipeline is reconciling the heterogeneous outputs of the three sub-models. To resolve dimensional mismatch, the engine applies a mathematical transformation to map the Fundamental and Sentiment [-1, 1] feature vectors onto a continuous [0, 100] interval:
-$$ \text{Score}{\text{norm}} = \left(\frac{\text{Score}{\text{raw}} + 1}{2}\right) \times 100 $$
-Once all three pillars are normalized to a base-100 scale, the integration matrix applies a predefined institutional weighting vector to compute the final score:
+The core engineering challenge of this pipeline is reconciling the heterogeneous outputs of the three sub-models. To resolve dimensional mismatch, the engine applies a mathematical transformation to map the Fundamental and Sentiment $[-1, 1]$ feature vectors onto a continuous $[0, 100]$ interval:
+* **Normalization Formula:** `Score_norm = ((Score_raw + 1) / 2) * 100`
 
-$$ \text{Master Rating} = (W_T \times P_T) + (W_F \times P_F) + (W_S \times P_S) $$
+Once all three pillars are normalized to a base-100 scale, the integration matrix applies a predefined institutional weighting vector to compute the final score:
+$\text{Master Rating} = (W_T \times P_T) + (W_F \times P_F) + (W_S \times P_S)$
+
 (Where W represents the assigned weight and P represents the normalized probability/score for the Technical, Fundamental, and Sentiment pillars).
 
 # ---
