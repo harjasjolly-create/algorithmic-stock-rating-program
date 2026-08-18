@@ -74,6 +74,7 @@ $\text{Master Rating} = (W_T \times P_T) + (W_F \times P_F) + (W_S \times P_S)$
 
 # 📊 Dashboard Visualization
 A static rendering of the probabilistic Master Rating gauge. For the interactive hover-state dashboard, please launch the Colab environment.
+![Master Rating Dashboard](https://github.com/harjasjolly-create/algorithmic-stock-rating-program/blob/main/output.png)
 # 🚀 Installation & Local Execution
 # 1.Clone the repository
 ```bash
