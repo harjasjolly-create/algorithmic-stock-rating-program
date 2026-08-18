@@ -12,3 +12,4 @@ done: 1)extraction of candle data.
       10)normalised all scores to produce a master buy rating
       11)buy rating gauge using Plotly with execution text including buy/hold/sell
 
+**[Click Here to Run the Live Interactive Model in Google Colab](https://colab.research.google.com/github/harjasjolly-create/algorithmic-stock-rating-program/blob/main/hypothesis_verifier.ipynb)**
