@@ -6,7 +6,7 @@ done: 1)extraction of candle data.
       4)ema
       5)rsi
       6)support/resistance
+      7)fundamental_analysis score
+      8)sentimental_analysis score
 in progress: 
-final chart_analysis regression score
-fundamental_analysis score
-sentimental_analysis score
+final chart_analysis regression/classification score
